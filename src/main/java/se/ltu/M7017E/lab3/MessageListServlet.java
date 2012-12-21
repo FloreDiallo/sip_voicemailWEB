@@ -14,13 +14,14 @@ public class MessageListServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		// indicate how you translate the data
 		response.setContentType("text/html");
 		// following lines not used if there is an error
 		response.setStatus(HttpServletResponse.SC_OK);
-		// construct the html page
+
 		response.getWriter().println("<h1>Message List</h1>");
+
 		// TODO :not use the /tmp/sip-voicemail, but the files
+		// TODO : just display the files which is yours
 		File directory = new File("/tmp/sip-voicemail/");
 		File[] listFolder = directory.listFiles();
 		String name = new String();
@@ -33,6 +34,5 @@ public class MessageListServlet extends HttpServlet {
 								+ "</a><br/>");
 			}
 		}
-		response.getWriter().println("<br/><br/><br/>");
 	}
 }

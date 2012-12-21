@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class MessageServlet extends HttpServlet {
 	private static final long serialVersionUID = -1555000962871473755L;
-	private String me = new String("dudule");
+	private String me = new String("flore");
 
 	// get the file content
 	protected void doGet(HttpServletRequest request,
@@ -26,10 +26,8 @@ public class MessageServlet extends HttpServlet {
 		response.getWriter().println("You are " + me + "<br /><br />");
 		// TODO :not use the /tmp/sip-voicemail, but the files
 		File directory = new File("/tmp/sip-voicemail/" + username);
-		response.getWriter()
-				.println(
-						directory.getAbsolutePath() + " exists ? "
-								+ directory.exists());
+
+		// TODO : mettre en forme le message / Message de ... le ...
 		if (directory.exists() && (username.equals(me))) {
 			File[] messageList = directory.listFiles();
 			response.getWriter().println("<br /><h3>");

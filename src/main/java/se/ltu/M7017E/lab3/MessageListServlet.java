@@ -7,19 +7,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class HelloServlet extends HttpServlet {
+public class MessageListServlet extends HttpServlet {
 
-	private static final long serialVersionUID = -7457253946394833251L;
-
-	// get the fiole content
+	private static final long serialVersionUID = 7644831738545260865L;
+	
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(request.getParameter("username"));
 		// indicate how you translate the data
 		response.setContentType("text/html");
+		// following lines not used if there is an error
 		response.setStatus(HttpServletResponse.SC_OK);
-		response.getWriter().println("<h1>Hello Servlet</h1>");
-		response.getWriter().println(
-				"session=" + request.getSession(true).getId());
+		// construct the html page
+		response.getWriter().println("<h1>Message List</h1>");
+		response.getWriter().println("<a href=\"message?username=flore\">Flore</a><br/>");
+		response.getWriter().println("<a href=\"message?username=dudule\">Dudule</a><br/>");
 	}
 }

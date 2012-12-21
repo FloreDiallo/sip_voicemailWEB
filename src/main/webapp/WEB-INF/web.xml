@@ -19,4 +19,22 @@
 		<servlet-name>Message</servlet-name>
 		<url-pattern>/message/*</url-pattern>
 	</servlet-mapping>
+		
+	<servlet>
+		<servlet-name>MessageList</servlet-name>
+		<servlet-class>se.ltu.M7017E.lab3.MessageListServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MessageList</servlet-name>
+		<url-pattern>/message_list/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>GetMessage</servlet-name>
+		<servlet-class>se.ltu.M7017E.lab3.GetMessageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetMessage</servlet-name>
+		<url-pattern>/getmessage/*</url-pattern>
+	</servlet-mapping>
 </web-app>

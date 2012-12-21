@@ -1,5 +1,6 @@
 package se.ltu.M7017E.lab3;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -10,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 public class MessageListServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 7644831738545260865L;
-	
+
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// indicate how you translate the data
@@ -19,7 +20,19 @@ public class MessageListServlet extends HttpServlet {
 		response.setStatus(HttpServletResponse.SC_OK);
 		// construct the html page
 		response.getWriter().println("<h1>Message List</h1>");
-		response.getWriter().println("<a href=\"message?username=flore\">Flore</a><br/>");
-		response.getWriter().println("<a href=\"message?username=dudule\">Dudule</a><br/>");
+		// TODO :not use the /tmp/sip-voicemail, but the files
+		File directory = new File("/tmp/sip-voicemail/");
+		File[] listFolder = directory.listFiles();
+		String name = new String();
+		for (File folder : listFolder) {
+			// get the list of the users with recorded messages
+			if (folder.isDirectory()) {
+				name = folder.getName();
+				response.getWriter().println(
+						"<a href=\"message?username=" + name + "\">" + name
+								+ "</a><br/>");
+			}
+		}
+		response.getWriter().println("<br/><br/><br/>");
 	}
 }

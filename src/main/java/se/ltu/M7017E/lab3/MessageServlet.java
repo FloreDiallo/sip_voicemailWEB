@@ -24,7 +24,7 @@ public class MessageServlet extends HttpServlet {
 		response.getWriter().println("<h1>Message List</h1>");
 		username = request.getParameter("username");
 		response.getWriter().println("You are " + me + "<br /><br />");
-
+		// TODO :not use the /tmp/sip-voicemail, but the files
 		File directory = new File("/tmp/sip-voicemail/" + username);
 		response.getWriter()
 				.println(

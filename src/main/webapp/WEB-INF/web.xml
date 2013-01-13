@@ -2,23 +2,6 @@
 <web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="2.5">
-	<servlet>
-		<servlet-name>Hello</servlet-name>
-		<servlet-class>se.ltu.M7017E.lab3.HelloServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>Hello</servlet-name>
-		<url-pattern>/hello/*</url-pattern>
-	</servlet-mapping>
-
-	<servlet>
-		<servlet-name>Message</servlet-name>
-		<servlet-class>se.ltu.M7017E.lab3.MessageServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>Message</servlet-name>
-		<url-pattern>/message/*</url-pattern>
-	</servlet-mapping>
 		
 	<servlet>
 		<servlet-name>MessageList</servlet-name>
@@ -30,11 +13,39 @@
 	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>GetMessage</servlet-name>
-		<servlet-class>se.ltu.M7017E.lab3.GetMessageServlet</servlet-class>
+		<servlet-name>ReadMessage</servlet-name>
+		<servlet-class>se.ltu.M7017E.lab3.ReadMessageServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>GetMessage</servlet-name>
-		<url-pattern>/getmessage/*</url-pattern>
+		<servlet-name>ReadMessage</servlet-name>
+		<url-pattern>/readmessage/*</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>GetParam</servlet-name>
+		<servlet-class>se.ltu.M7017E.lab3.GetParamServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetParam</servlet-name>
+		<url-pattern>/getparam/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Login</servlet-name>
+		<servlet-class>se.ltu.M7017E.lab3.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Login</servlet-name>
+		<url-pattern>/LoginServlet/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SaveMessage</servlet-name>
+		<servlet-class>se.ltu.M7017E.lab3.SaveMessageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SaveMessage</servlet-name>
+		<url-pattern>/storemessage/*</url-pattern>
+	</servlet-mapping>
+	
 </web-app>

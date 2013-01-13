@@ -21,7 +21,6 @@ public class MessageListServlet extends HttpServlet {
 		response.getWriter().println("<h1>Message List</h1>");
 
 		// TODO :not use the /tmp/sip-voicemail, but the files
-		// TODO : just display the files which is yours
 		File directory = new File("/tmp/sip-voicemail/");
 		File[] listFolder = directory.listFiles();
 		String name = new String();

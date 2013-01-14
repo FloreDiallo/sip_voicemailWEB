@@ -26,11 +26,17 @@ public class ReadMessageServlet extends HttpServlet {
 		// read in browser
 		response.setCharacterEncoding(null);
 		response.setContentLength((int) file.length());
-
 		int readbyte;
 		while ((readbyte = message.read()) != -1) {
-			response.getOutputStream().write(readbyte);
+			try {
+				response.getOutputStream().write(readbyte);
+			} catch (IOException e) {
+
+			} catch (IllegalStateException e1) {
+
+			}
 		}
 		message.close();
+
 	}
 }

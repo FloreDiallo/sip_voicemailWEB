@@ -14,23 +14,36 @@ public class LoginServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String username = new String();
+
 		response.setContentType("text/html");
 		response.setStatus(HttpServletResponse.SC_OK);
-		response.getWriter().println("<h1>Message List (Login)</h1>");
+
+		// HTML header
+		response.getWriter()
+				.println(
+						"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\">"
+								+ "<html><head>"
+								+ "<head>"
+								+ "<META http-equiv=Content-Type content=\"text/html; charset=UTF-8\">"
+								+ "</head><body>");
+		// Get the username to access the right folder
+		String username = new String();
 		username = request.getParameter("username");
+
+		response.getWriter().println("<h1>Message List</h1>");
 		response.getWriter().println(
-				"<h3>Identied as " + username + "</h3><br /><br />");
+				"<h3>Identied as " + username + "</h3><br />");
 		File directory = new File("/tmp/sip_voicemail/" + username);
 		String originDir = new String("/tmp/sip_voicemail/" + username + "/");
-		request.setAttribute("originDir", originDir);
-		request.setAttribute("username", username);
+		// request.setAttribute("originDir", originDir);
+		// request.setAttribute("username", username);
 
 		if (directory.exists()) {
-			// there is at least one message left
+			// there is at least one message
 			File[] messageList = directory.listFiles();
-			response.getWriter().println("<br /><h3>");
+			response.getWriter().println("<h3>");
 			String displayedName = new String();
+			// display the files
 			for (File message : messageList) {
 				displayedName = MessageNameFormat(message.getName());
 				response.getWriter().println(displayedName + "<br />");
@@ -40,7 +53,7 @@ public class LoginServlet extends HttpServlet {
 		} else {
 			// No message for this user
 			response.getWriter().println(
-					"<h3>Empty Folder</h3><br /><br />"
+					"<h3>Empty Folder</h3><br />"
 							+ "<p> You do not have any message left</p>");
 		}
 		response.getWriter()

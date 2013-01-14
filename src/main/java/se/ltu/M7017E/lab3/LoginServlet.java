@@ -25,8 +25,10 @@ public class LoginServlet extends HttpServlet {
 		File directory = new File("/tmp/sip-voicemail/" + username);
 		String originDir = new String("/tmp/sip-voicemail/" + username + "/");
 		request.setAttribute("originDir", originDir);
+		request.setAttribute("username", username);
 
-		if (directory.exists() && (username.equals("flore"))) { // TODO
+		if (directory.exists()) {
+			// there is at least one message left
 			File[] messageList = directory.listFiles();
 			response.getWriter().println("<br /><h3>");
 			String displayedName = new String();
@@ -37,11 +39,14 @@ public class LoginServlet extends HttpServlet {
 			}
 			response.getWriter().println("</h3>");
 		} else {
+			// No message for this user
 			response.getWriter().println(
-					"<br /><h3>No access to this file</h3>");
+					"<h3>Empty File</h3><br /><br />"
+							+ "<p> You do not have any message left</p>");
 		}
-		response.getWriter().println("<br /><a href=\"/\">Back</a>");
-
+		response.getWriter()
+				.println(
+						"<br /><a href=\"/\"><input type=\"button\" value=\"Back\"></a>");
 	}
 
 	private String MessageNameFormat(String name) {

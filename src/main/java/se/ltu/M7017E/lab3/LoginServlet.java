@@ -21,7 +21,6 @@ public class LoginServlet extends HttpServlet {
 		username = request.getParameter("username");
 		response.getWriter().println(
 				"<h3>Identied as " + username + "</h3><br /><br />");
-		// TODO :not use the /tmp/sip-voicemail, but the files
 		File directory = new File("/tmp/sip-voicemail/" + username);
 		String originDir = new String("/tmp/sip-voicemail/" + username + "/");
 		request.setAttribute("originDir", originDir);
@@ -35,13 +34,13 @@ public class LoginServlet extends HttpServlet {
 			for (File message : messageList) {
 				displayedName = MessageNameFormat(message.getName());
 				response.getWriter().println(displayedName + "<br />");
-				displayButton(response, message, originDir);
+				displayButton(response, message, originDir, username);
 			}
 			response.getWriter().println("</h3>");
 		} else {
 			// No message for this user
 			response.getWriter().println(
-					"<h3>Empty File</h3><br /><br />"
+					"<h3>Empty Folder</h3><br /><br />"
 							+ "<p> You do not have any message left</p>");
 		}
 		response.getWriter()
@@ -59,9 +58,10 @@ public class LoginServlet extends HttpServlet {
 	}
 
 	private void displayButton(HttpServletResponse response, File message,
-			String originDir) throws IOException {
+			String originDir, String username) throws IOException {
 		response.getWriter().print(
 				"<a href =\"/readmessage?name=" + message.getName()
+						+ "&username=" + username
 						+ "\"><input type=\"button\" value=\"Listen\"></a> ");
 		response.getWriter().print(
 				"<a href =\"/getparam?name=" + message.getName() + "&from="

@@ -21,8 +21,8 @@ public class LoginServlet extends HttpServlet {
 		username = request.getParameter("username");
 		response.getWriter().println(
 				"<h3>Identied as " + username + "</h3><br /><br />");
-		File directory = new File("/tmp/sip-voicemail/" + username);
-		String originDir = new String("/tmp/sip-voicemail/" + username + "/");
+		File directory = new File("/tmp/sip_voicemail/" + username);
+		String originDir = new String("/tmp/sip_voicemail/" + username + "/");
 		request.setAttribute("originDir", originDir);
 		request.setAttribute("username", username);
 

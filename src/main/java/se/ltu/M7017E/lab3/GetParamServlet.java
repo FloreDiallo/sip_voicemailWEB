@@ -15,9 +15,11 @@ public class GetParamServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		String filename = request.getParameter("name");
 		String originDir = request.getParameter("from");
+		String username = request.getParameter("username");
 
 		request.setAttribute("filename", filename);
 		request.setAttribute("originDir", originDir);
+		request.setAttribute("username", username);
 		getServletContext().getRequestDispatcher("/savemessage.jsp").forward(
 				request, response);
 	}

@@ -46,7 +46,7 @@ public class SaveMessageServlet extends HttpServlet {
 		// close all files
 		fin.close();
 		fout.close();
-		getServletContext().getRequestDispatcher("/index.jsp").forward(request,
-				response);
+		getServletContext().getRequestDispatcher("/LoginServlet/").forward(
+				request, response);
 	}
 }

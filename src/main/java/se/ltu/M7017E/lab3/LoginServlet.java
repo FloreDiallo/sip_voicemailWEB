@@ -77,8 +77,8 @@ public class LoginServlet extends HttpServlet {
 						+ "&username=" + username
 						+ "\"><input type=\"button\" value=\"Listen\"></a> ");
 		response.getWriter().print(
-				"<a href =\"/getparam?name=" + message.getName() + "&from="
-						+ originDir
+				"<a href =\"/getparam?username=" + username + "&name="
+						+ message.getName() + "&from=" + originDir
 						+ "\"><input type=\"button\" value=\"Save\"></a> ");
 		response.getWriter()
 				.print("<a href =\"/deletemessage?name="

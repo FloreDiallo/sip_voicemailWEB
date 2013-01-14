@@ -17,8 +17,12 @@
 	filename = (String)request.getAttribute("filename");
 	String originDir = new String();
 	originDir = (String)request.getAttribute("originDir");
+	String username = new String();
+	username = (String)request.getAttribute("username");
 	 %>
 	<form method="get" action="/storemessage">
+		<strong>Username</strong> :
+			<textarea name="username" readonly="true" rows=1 cols=60><%= username %></textarea><br /><br />	
 		<strong>File to Save</strong> :
 			<textarea name="save" readonly="true" rows=1 cols=60><%= filename %></textarea><br /><br />	
 		<strong>Old Directory</strong> :

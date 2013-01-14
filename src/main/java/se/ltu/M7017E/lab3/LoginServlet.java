@@ -65,7 +65,7 @@ public class LoginServlet extends HttpServlet {
 		String split[] = name.split("-", 0);
 
 		formatedName = "Date: " + split[2] + "/" + split[3] + "/" + split[1]
-				+ "<br /> Message of " + split[0];
+				+ "<br /> Message from " + split[0];
 		return formatedName;
 	}
 
@@ -73,7 +73,7 @@ public class LoginServlet extends HttpServlet {
 			String originDir, String username) throws IOException {
 		response.getWriter().print(
 				"<a href =\"/readmessage?name=" + message.getName()
-						+ "&username=" + username
+						+ "&username=" + username + "&from=" + originDir
 						+ "\"><input type=\"button\" value=\"Listen\"></a> ");
 		response.getWriter().print(
 				"<a href =\"/getparam?username=" + username + "&name="

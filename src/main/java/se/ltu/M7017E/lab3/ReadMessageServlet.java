@@ -19,8 +19,7 @@ public class ReadMessageServlet extends HttpServlet {
 		response.setContentType("audio/ogg");
 		response.setStatus(HttpServletResponse.SC_OK);
 		// get the file to read
-		File file = new File("/tmp/sip_voicemail/"
-				+ request.getParameter("username") + "/"
+		File file = new File(request.getParameter("from")
 				+ request.getParameter("name"));
 		FileInputStream message = new FileInputStream(file);
 		// read in browser

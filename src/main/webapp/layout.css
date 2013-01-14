@@ -1,0 +1,36 @@
+body
+{
+	background-color : lightsalmon;
+	font-family : Arial, "Times New Roman", sans-serif;
+}
+
+strong
+{
+	color : burlywood;
+}
+
+h1
+{
+	color : lightsalmon;
+	margin : 50px;
+}
+
+h3
+{
+	color : burlywood;
+	font-weight : bold;
+}
+
+a
+{
+	text-decoration : none;
+}
+
+#sub
+{
+	background-color : oldlace;
+	width: 800px;
+	margin : auto;
+	padding : 50px;
+	height : 100%;
+}

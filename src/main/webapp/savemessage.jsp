@@ -7,10 +7,11 @@
 <html>
 <head>
 	<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="layout.css" />
 	<script language="Javascript"></script>
 </head>
 <body>
-
+<div id="sub">
 	<h1>Save your file</h1>
 	<%-- Get the name of the file --%>
 	<% String filename = new String();
@@ -22,17 +23,18 @@
 	 %>
 	<form method="get" action="/storemessage">
 		<strong>Username</strong> :
-			<textarea name="username" readonly="true" rows=1 cols=60><%= username %></textarea><br /><br />	
+			<textarea name="username" readonly="true" rows=1 cols=64><%= username %></textarea><br /><br />	
 		<strong>File to Save</strong> :
-			<textarea name="save" readonly="true" rows=1 cols=60><%= filename %></textarea><br /><br />	
+			<textarea name="save" readonly="true" rows=1 cols=63><%= filename %></textarea><br /><br />	
 		<strong>Old Directory</strong> :
-			<textarea name="from" readonly="true"rows=1 cols=60><%= originDir %></textarea><br /><br />	
+			<textarea name="from" readonly="true"rows=1 cols=61><%= originDir %></textarea><br /><br />	
 		<strong>New Directory</strong> :
-			<textarea name="to" rows=1 cols=60>/home/</textarea><br /><br />	
+			<textarea name="to" rows=1 cols=60>/tmp/</textarea><br /><br />	
 		<strong>Rename your file:</strong> :		
 			<input type="text" value=<%= filename %> name="new_name" size=60/><br>
 		<input type="submit" name="finalsave" value="Save"/>
 	</form>
 	<a href="/LoginServlet?username=<%=username%>"><input type="button" value="Cancel"></a>
+</div>
 </body>
 </html>

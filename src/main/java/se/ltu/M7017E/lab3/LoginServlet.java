@@ -26,15 +26,14 @@ public class LoginServlet extends HttpServlet {
 								+ "<html><head>"
 								+ "<head>"
 								+ "<META http-equiv=Content-Type content=\"text/html; charset=UTF-8\">"
-								+ "</head><body>");
+								+ "<link rel=\"stylesheet\" href=\"layout.css\" />"
+								+ "</head><body><div id=\"sub\">");
 		// Get the username to access the right folder
 		String username = new String();
 		username = request.getParameter("username");
 
 		response.getWriter().println("<h1>Message List</h1>");
-		response.getWriter().println(
-				"<h3>Identied as " + username + "</h3><br />");
-		// File directory = new File("/tmp/sip_voicemail/" + username);
+		response.getWriter().println("<h3>Hello " + username + "</h3><br />");
 		File directory = new File(settings.getMainFolder() + username);
 		String originDir = new String(settings.getMainFolder() + username + "/");
 
@@ -58,15 +57,15 @@ public class LoginServlet extends HttpServlet {
 		}
 		response.getWriter()
 				.println(
-						"<br /><a href=\"/\"><input type=\"button\" value=\"Back\"></a>");
+						"<br /><a href=\"/\"><input type=\"button\" value=\"Back\"></a></div></body></html>");
 	}
 
 	private String MessageNameFormat(String name) {
 		String formatedName = new String();
 		String split[] = name.split("-", 0);
 
-		formatedName = "Message de " + split[0] + " le " + split[3] + " "
-				+ split[2] + " " + split[1];
+		formatedName = "Date: " + split[2] + "/" + split[3] + "/" + split[1]
+				+ "<br /> Message of " + split[0];
 		return formatedName;
 	}
 

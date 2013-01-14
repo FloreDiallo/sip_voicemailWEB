@@ -21,6 +21,8 @@ public class SaveMessageServlet extends HttpServlet {
 		String newFolder = request.getParameter("to"); // new folder
 		String newname = request.getParameter("new_name"); // new file
 
+		response.setStatus(HttpServletResponse.SC_OK);
+
 		FileInputStream fin = new FileInputStream(fromFolder + oldname);
 
 		// make sure the file is an audio one

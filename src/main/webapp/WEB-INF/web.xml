@@ -4,15 +4,6 @@
 	version="2.5">
 		
 	<servlet>
-		<servlet-name>MessageList</servlet-name>
-		<servlet-class>se.ltu.M7017E.lab3.MessageListServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>MessageList</servlet-name>
-		<url-pattern>/message_list/*</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
 		<servlet-name>ReadMessage</servlet-name>
 		<servlet-class>se.ltu.M7017E.lab3.ReadMessageServlet</servlet-class>
 	</servlet>

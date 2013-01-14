@@ -12,7 +12,8 @@
 	<h1>Identify yourself to access your messages</h1>
 	<form action="LoginServlet">
 		<strong>Username</strong> :		
-		<input type="text" name="username"/><br>		
+		<input type="text" name="username"/><br>
+		<input type="submit" name="login" value="Login">		
 	</form>
 </body>
 </html>

@@ -33,5 +33,6 @@
 			<input type="text" value=<%= filename %> name="new_name" size=60/><br>
 		<input type="submit" name="finalsave" value="Save"/>
 	</form>
+	<a href="/LoginServlet?username=<%=username%>"><input type="button" value="Cancel"></a>
 </body>
 </html>

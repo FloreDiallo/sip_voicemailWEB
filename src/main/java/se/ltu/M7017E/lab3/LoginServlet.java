@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 3352555589253401049L;
+	private FilesSetting settings = new FilesSetting();
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -33,10 +34,9 @@ public class LoginServlet extends HttpServlet {
 		response.getWriter().println("<h1>Message List</h1>");
 		response.getWriter().println(
 				"<h3>Identied as " + username + "</h3><br />");
-		File directory = new File("/tmp/sip_voicemail/" + username);
-		String originDir = new String("/tmp/sip_voicemail/" + username + "/");
-		// request.setAttribute("originDir", originDir);
-		// request.setAttribute("username", username);
+		// File directory = new File("/tmp/sip_voicemail/" + username);
+		File directory = new File(settings.getMainFolder() + username);
+		String originDir = new String(settings.getMainFolder() + username + "/");
 
 		if (directory.exists()) {
 			// there is at least one message

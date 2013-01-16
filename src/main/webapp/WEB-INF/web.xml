@@ -11,16 +11,7 @@
 		<servlet-name>ReadMessage</servlet-name>
 		<url-pattern>/readmessage/*</url-pattern>
 	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>GetParam</servlet-name>
-		<servlet-class>se.ltu.M7017E.lab3.GetParamServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>GetParam</servlet-name>
-		<url-pattern>/getparam/*</url-pattern>
-	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>Login</servlet-name>
 		<servlet-class>se.ltu.M7017E.lab3.LoginServlet</servlet-class>
@@ -39,4 +30,12 @@
 		<url-pattern>/storemessage/*</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>DeleteMessage</servlet-name>
+		<servlet-class>se.ltu.M7017E.lab3.DeleteMessageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeleteMessage</servlet-name>
+		<url-pattern>/deletemessage/*</url-pattern>
+	</servlet-mapping>	
 </web-app>

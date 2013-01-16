@@ -26,6 +26,12 @@ a
 	text-decoration : none;
 }
 
+#hidden
+{
+	height : 5px;
+	visibility : hidden;
+}
+
 #sub
 {
 	background-color : oldlace;

@@ -13,6 +13,9 @@ public class ReadMessageServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -7183074843178240815L;
 
+	/**
+	 * Play a file directly in the browser
+	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// Audio player

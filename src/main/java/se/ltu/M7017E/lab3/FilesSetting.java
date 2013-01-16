@@ -1,23 +1,21 @@
 package se.ltu.M7017E.lab3;
 
+/**
+ * This class must be used to define where the files are stored on the server
+ */
 public class FilesSetting {
 
 	private String mainFolder;
-	private String saveFolder;
 
 	public FilesSetting() {
 		mainFolder = new String("/tmp/sip_voicemail/");
-		saveFolder = new String("/home/");
 	}
 
-	public void setSaveFolder(String new_saveFolder) {
-		this.saveFolder = new_saveFolder;
-	}
-
-	public String getSaveFolder() {
-		return this.saveFolder;
-	}
-
+	/**
+	 * Get the folder where the file is stored
+	 * 
+	 * @return name of the folder
+	 */
 	public String getMainFolder() {
 		return this.mainFolder;
 	}

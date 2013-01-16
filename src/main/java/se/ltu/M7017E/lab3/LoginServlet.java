@@ -13,12 +13,14 @@ public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 3352555589253401049L;
 	private FilesSetting settings = new FilesSetting();
 
+	/**
+	 * Display the page with all the message of the identified user.
+	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		response.setContentType("text/html");
 		response.setStatus(HttpServletResponse.SC_OK);
-
 		// HTML header
 		response.getWriter()
 				.println(
@@ -51,15 +53,19 @@ public class LoginServlet extends HttpServlet {
 			response.getWriter().println("</h3>");
 		} else {
 			// No message for this user
-			response.getWriter().println(
-					"<h3>Empty Folder</h3><br />"
-							+ "<p> You do not have any message left</p>");
 		}
 		response.getWriter()
 				.println(
 						"<br /><a href=\"/\"><input type=\"button\" value=\"Back\"></a></div></body></html>");
 	}
 
+	/**
+	 * Format the way to display the name of the message
+	 * 
+	 * @param name
+	 *            Name of the message
+	 * @return
+	 */
 	private String MessageNameFormat(String name) {
 		String formatedName = new String();
 		String split[] = name.split("-", 0);
@@ -69,6 +75,19 @@ public class LoginServlet extends HttpServlet {
 		return formatedName;
 	}
 
+	/**
+	 * Display the buttons to Listen, Save or delete a File from the server. All
+	 * the information needed are in the parameters.
+	 * 
+	 * @param response
+	 * @param message
+	 *            the file to work with
+	 * @param originDir
+	 *            the folder where the message is stored
+	 * @param username
+	 *            name of the user
+	 * @throws IOException
+	 */
 	private void displayButton(HttpServletResponse response, File message,
 			String originDir, String username) throws IOException {
 		response.getWriter().print(
@@ -76,12 +95,16 @@ public class LoginServlet extends HttpServlet {
 						+ "&username=" + username + "&from=" + originDir
 						+ "\"><input type=\"button\" value=\"Listen\"></a> ");
 		response.getWriter().print(
-				"<a href =\"/getparam?username=" + username + "&name="
+				"<a href =\"/storemessage?username=" + username + "&save="
 						+ message.getName() + "&from=" + originDir
 						+ "\"><input type=\"button\" value=\"Save\"></a> ");
 		response.getWriter()
 				.print("<a href =\"/deletemessage?name="
 						+ message.getName()
+						+ "&username="
+						+ username
+						+ "&from="
+						+ originDir
 						+ "\"><input type=\"button\" value=\"Delete\"></a><br /><br />");
 	}
 }

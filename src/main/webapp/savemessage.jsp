@@ -22,12 +22,14 @@
 	username = (String)request.getAttribute("username");
 	 %>
 	<form method="get" action="/storemessage">
+	<div id="hidden">
 		<strong>Username :</strong>
 			<textarea name="username" readonly="true" rows=1 cols=64><%= username %></textarea><br /><br />	
 		<strong>File to Save :</strong>
 			<textarea name="save" readonly="true" rows=1 cols=63><%= filename %></textarea><br /><br />	
 		<strong>Old Directory :</strong>
 			<textarea name="from" readonly="true"rows=1 cols=61><%= originDir %></textarea><br /><br />	
+	</div>
 		<strong>New Directory :</strong>
 			<textarea name="to" rows=1 cols=60>/tmp/</textarea><br /><br />	
 		<strong>Rename your file :</strong>		
